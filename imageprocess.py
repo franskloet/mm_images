@@ -52,8 +52,8 @@ def processimage(impath,imname,minpoly=75,maxpoly=1000):
     
     
     mask = cv.cvtColor(mask,cv.COLOR_BGR2GRAY)
-    
-    return mask
+    masked = cv.bitwise_and(open_cv_image, open_cv_image, mask=mask)
+    return masked
 
 mainpath="C:\\Users\\jevans\\Documents\\GitHub\\mm_images"
 impath=os.path.join(mainpath,"training","images")
@@ -78,6 +78,20 @@ for img, ax in zip(allmasks, axs):
     
 fig.savefig(os.path.join(mainpath,"allimages.png"))
     
+
+os.makedirs(impath2,exist_ok=True)    
+for i in range(len(allmasks)):
+    im = Image.fromarray(allmasks[i])
+    im.save(os.path.join(impath2,os.path.splitext(imnames[i])[0]+".tif"))
+
+allmasks=[]    
+impath=os.path.join(mainpath,"test","images")
+imnames=os.listdir(impath)    
+
+for imname in imnames:
+    allmasks.append(processimage(impath,imname))
+
+impath2=os.path.join(mainpath,"test","processedimages")
 
 os.makedirs(impath2,exist_ok=True)    
 for i in range(len(allmasks)):
