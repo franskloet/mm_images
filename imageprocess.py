@@ -82,7 +82,7 @@ fig.savefig(os.path.join(mainpath,"allimages.png"))
 os.makedirs(impath2,exist_ok=True)    
 for i in range(len(allmasks)):
     im = Image.fromarray(allmasks[i])
-    im.save(os.path.join(impath2,os.path.splitext(imnames[i])[0]+"_processed.tif"))
+    im.save(os.path.join(impath2,os.path.splitext(imnames[i])[0]+".tif"))
     
 
 
