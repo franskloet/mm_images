@@ -68,7 +68,7 @@ plt.imshow(allmasks[0])
 
 
 
-impath2=os.path.join(mainpath,"training","processedimages")
+impath2=os.path.join(mainpath,"training","processedimages2")
 
 fig, axs = plt.subplots(5, 2,  figsize=(20, 50))
 
