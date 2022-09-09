@@ -12,6 +12,3 @@ these images will be used to update an existing mm detector network and ultimate
 ## scripts
 - **imageprocess.py** script using the opencv2 image library to preprocess the images
 
-
-## Example of a prediction
-<img src="./demo_predict.png" width="400" height="400">
